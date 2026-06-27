@@ -1,7 +1,7 @@
-import { UserService } from "../../services/UserService";
-import { User } from "../../entities/User";
-import { setupTestSchema, teardownTestSchema } from "../helpers/setup";
-describe("#User", () => {
+import { UserService } from '../../services/UserService';
+import { User } from '../../entities/User';
+import { setupTestSchema, teardownTestSchema } from '../helpers/setup';
+describe('#User', () => {
     let dataSource;
     let schema;
     let sut;
@@ -14,19 +14,19 @@ describe("#User", () => {
     afterAll(async () => {
         await teardownTestSchema(dataSource, schema);
     });
-    test("should be able to create a User successfully", async () => {
+    test('should be able to create a User successfully', async () => {
         const user = await sut.create({
-            name: "Mr Spin",
-            email: "mrspin@spin.com",
+            name: 'Mr Spin',
+            email: 'mrspin@spin.com',
         });
         expect(user.id).not.toBeNull();
-        expect(user.name).toBe("Mr Spin");
-        expect(user.email).toBe("mrspin@spin.com");
+        expect(user.name).toBe('Mr Spin');
+        expect(user.email).toBe('mrspin@spin.com');
     });
-    test("should be able to delete a User successfully", async () => {
+    test('should be able to delete a User successfully', async () => {
         const user = await sut.create({
-            name: "Mr Spin 2",
-            email: "mrspin2@spin.com",
+            name: 'Mr Spin 2',
+            email: 'mrspin2@spin.com',
         });
         const rowsAffected = await sut.remove(user.id);
         const deletedUser = await dataSource.getRepository(User).findOne({

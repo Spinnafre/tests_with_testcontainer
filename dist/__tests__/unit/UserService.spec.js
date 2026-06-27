@@ -1,6 +1,6 @@
 import { jest, describe, it, expect, beforeEach } from '@jest/globals';
-import { UserService } from "../../services/UserService.js";
-describe("UserService Unit Tests", () => {
+import { UserService } from '../../services/UserService.js';
+describe('UserService Unit Tests', () => {
     let mockRepository;
     let userService;
     beforeEach(() => {
@@ -11,8 +11,8 @@ describe("UserService Unit Tests", () => {
         };
         userService = new UserService(mockRepository);
     });
-    it("should create a user successfully", async () => {
-        const userData = { name: "Test User", email: "test@example.com" };
+    it('should create a user successfully', async () => {
+        const userData = { name: 'Test User', email: 'test@example.com' };
         const createdUser = { id: 1, ...userData };
         mockRepository.create.mockReturnValue(createdUser);
         mockRepository.save.mockResolvedValue(createdUser);
@@ -21,7 +21,7 @@ describe("UserService Unit Tests", () => {
         expect(mockRepository.save).toHaveBeenCalledWith(createdUser);
         expect(result).toEqual(createdUser);
     });
-    it("should remove a user successfully", async () => {
+    it('should remove a user successfully', async () => {
         mockRepository.delete.mockResolvedValue({ affected: 1, raw: [] });
         const result = await userService.remove(1);
         expect(mockRepository.delete).toHaveBeenCalledWith(1);

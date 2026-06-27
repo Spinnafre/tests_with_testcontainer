@@ -1,6 +1,6 @@
-import { randomUUID } from "node:crypto";
-import { DataSource, DataSourceOptions, MixedList } from "typeorm";
-import { env } from "../../config/env";
+import { randomUUID } from 'node:crypto';
+import { DataSource, DataSourceOptions, MixedList } from 'typeorm';
+import { env } from '../../config/env';
 
 export interface SetupTestSchemaResult {
   dataSource: DataSource;
@@ -10,10 +10,10 @@ export interface SetupTestSchemaResult {
 export async function setupTestSchema(
   entities: MixedList<Function | string | any>,
 ): Promise<SetupTestSchemaResult> {
-  const schema = `schema_${randomUUID().replace(/-/g, "_")}`;
+  const schema = `schema_${randomUUID().replace(/-/g, '_')}`;
 
   const dataSourceOptions: DataSourceOptions = {
-    type: "postgres",
+    type: 'postgres',
     host: env.DB_HOST,
     port: env.DB_PORT,
     username: env.DB_USERNAME,

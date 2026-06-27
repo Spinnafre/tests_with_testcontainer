@@ -1,10 +1,10 @@
-import { randomUUID } from "node:crypto";
-import { DataSource } from "typeorm";
-import { env } from "../../config/env";
+import { randomUUID } from 'node:crypto';
+import { DataSource } from 'typeorm';
+import { env } from '../../config/env';
 export async function setupTestSchema(entities) {
-    const schema = `schema_${randomUUID().replace(/-/g, "_")}`;
+    const schema = `schema_${randomUUID().replace(/-/g, '_')}`;
     const dataSourceOptions = {
-        type: "postgres",
+        type: 'postgres',
         host: env.DB_HOST,
         port: env.DB_PORT,
         username: env.DB_USERNAME,

@@ -1,4 +1,4 @@
-import { DataSource, MixedList } from "typeorm";
+import { DataSource, MixedList } from 'typeorm';
 export interface SetupTestSchemaResult {
     dataSource: DataSource;
     schema: string;

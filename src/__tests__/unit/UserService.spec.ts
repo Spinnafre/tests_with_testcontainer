@@ -1,9 +1,9 @@
 import { jest, describe, it, expect, beforeEach } from '@jest/globals';
-import { Repository } from "typeorm";
-import { User } from "../../entities/User.js";
-import { UserService } from "../../services/UserService.js";
+import { Repository } from 'typeorm';
+import { User } from '../../entities/User.js';
+import { UserService } from '../../services/UserService.js';
 
-describe("UserService Unit Tests", () => {
+describe('UserService Unit Tests', () => {
   let mockRepository: jest.Mocked<Repository<User>>;
   let userService: UserService;
 
@@ -17,8 +17,8 @@ describe("UserService Unit Tests", () => {
     userService = new UserService(mockRepository);
   });
 
-  it("should create a user successfully", async () => {
-    const userData = { name: "Test User", email: "test@example.com" };
+  it('should create a user successfully', async () => {
+    const userData = { name: 'Test User', email: 'test@example.com' };
     const createdUser = { id: 1, ...userData } as User;
 
     mockRepository.create.mockReturnValue(createdUser);
@@ -31,7 +31,7 @@ describe("UserService Unit Tests", () => {
     expect(result).toEqual(createdUser);
   });
 
-  it("should remove a user successfully", async () => {
+  it('should remove a user successfully', async () => {
     mockRepository.delete.mockResolvedValue({ affected: 1, raw: [] } as any);
 
     const result = await userService.remove(1);

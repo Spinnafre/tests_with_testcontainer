@@ -1,9 +1,9 @@
-import { DataSource } from "typeorm";
-import { ProductService } from "../../services/ProductService";
-import { Product } from "../../entities/Product";
-import { setupTestSchema, teardownTestSchema } from "../helpers/setup";
+import { DataSource } from 'typeorm';
+import { ProductService } from '../../services/ProductService';
+import { Product } from '../../entities/Product';
+import { setupTestSchema, teardownTestSchema } from '../helpers/setup';
 
-describe("#Product", () => {
+describe('#Product', () => {
   let dataSource: DataSource;
   let schema: string;
   let sut: ProductService;
@@ -20,20 +20,20 @@ describe("#Product", () => {
     await teardownTestSchema(dataSource, schema);
   });
 
-  test("should be able to create a user successfully", async () => {
+  test('should be able to create a user successfully', async () => {
     const product = await sut.create({
-      name: "playstation 2",
+      name: 'playstation 2',
       price: 40028922,
     });
 
     expect(product.id).not.toBeNull();
-    expect(product.name).toBe("playstation 2");
+    expect(product.name).toBe('playstation 2');
     expect(product.price).toBe(40028922);
   });
 
-  test("should be able to delete a user successfully", async () => {
+  test('should be able to delete a user successfully', async () => {
     const product = await sut.create({
-      name: "playstation 3",
+      name: 'playstation 3',
       price: 40028922,
     });
 

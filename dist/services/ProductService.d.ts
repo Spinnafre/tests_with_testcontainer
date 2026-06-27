@@ -1,5 +1,5 @@
-import { Repository } from "typeorm";
-import { Product } from "../entities/Product";
+import { Repository } from 'typeorm';
+import { Product } from '../entities/Product';
 export declare class ProductService {
     private readonly repository;
     constructor(repository: Repository<Product>);
